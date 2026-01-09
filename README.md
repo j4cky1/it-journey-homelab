@@ -1,5 +1,6 @@
 # it-journey-homelab
 Home-Lab Project: Documentation of my Ubuntu-based NAS-Setup.
+                  
                   Implemented to learn
 
 ### Hardware
