@@ -10,9 +10,9 @@ Home-Lab Project: Documentation of my Ubuntu-based NAS-Setup (this is a learning
 ### 🌐 Network
 - **Static IP:** `192.168.x.x` (configured via Netplan)
 - **Services:**
-  - SSH (Remote Access)(Key-based authentication *not implemented yet*)
-  - CasaOS (Web Dashboard)
-  - SMB (File Sharing)
+  - **SSH** (Remote Access)(Key-based authentication *not implemented yet*)
+  - **CasaOS** (Web Dashboard)
+  - **SMB** (File Sharing)
 
 ### 🎯 Learning Goals
 - Mastering the Linux Command Line (CLI)
