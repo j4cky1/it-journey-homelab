@@ -9,4 +9,15 @@ Home-Lab Project: Documentation of my Ubuntu-based NAS-Setup (this is a learning
 
 ### 🌐 Network
 - **Static IP:** `192.168.x.x` (configured via Netplan)
-- **Services:** SSH (Key-based authentication)
+- **Services:** SSH (Key-based authentication *not implemented yet*) 
+
+### 🎯 Learning Goals
+- Mastering the Linux Command Line (CLI)
+- Understanding Network File Systems (NFS)
+- Implementing automated backups to the WD MyPassport
+- Hardening the system for Cybersecurity best practices
+
+### 💾 Storage Layout
+- **Internal:** System & AppData (CasaOS)
+- **External (WD MyPassport):** Dedicated for Obsidian Vault backups and media storage.
+  
