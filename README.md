@@ -2,7 +2,6 @@
 Home-Lab Project: Documentation of my Ubuntu-based NAS-Setup
 
 ### About my project
----
 I started this project because I want to learn more about the IT-section. 
 
 ### Hardware
