@@ -13,6 +13,7 @@ Home-Lab Project: Documentation of my Ubuntu-based NAS-Setup (this is a learning
   - **SSH** (Remote Access)(Key-based authentication *not implemented yet*)
   - **CasaOS** (Web Dashboard)
   - **SMB** (File Sharing)
+  - **Immich** (Media Cloud)
 
 ### 🎯 Learning Goals
 - Mastering the Linux Command Line (CLI)
