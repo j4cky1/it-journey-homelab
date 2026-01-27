@@ -64,3 +64,34 @@ I moved the Borg passphrase into a hidden, restricted file (`.borg_pw`) instead 
 | **Workstation**| Arch Linux (ThinkPad T480) | ✅ Configured |
 | **Backups** | BorgBackup (Automated) | ✅ Active |
 | **Security** | SSH Key-Auth Only | ✅ Hardened |
+
+---
+
+## 📅 January 27, 2026 | Infrastructure Migration & Software Supply Chain Fix
+**Objective:** Resolve critical synchronization failure between the Immich server and mobile clients due to version fragmentation.
+
+### 🛠 Tasks & Implementation
+* **Issue Diagnosis**: Identified a major API mismatch after the mobile app auto-updated to **v2.4.1**, while the server remained on **v1.132.3**.
+* **Root Cause Analysis**: The instance was managed via the "BigBear" CasaOS store, which relied on a third-party image repository (`altran1502`) that lagged behind official releases.
+* **Registry Migration**: Decoupled the stack from third-party templates and migrated to the **Official GitHub Container Registry (ghcr.io)**.
+* **Configuration Hardening**: Updated `docker-compose.yml` to use the `:release` tag instead of `:latest` to ensure stability and compatibility with the official mobile client.
+* **Database Schema Upgrade**: Triggered a major migration of the PostgreSQL (`pgvecto-rs`) database to align with the **v2.5** server logic.
+
+### 🔍 Debugging & Troubleshooting
+* **Container Reconnaissance**: Discovered that CasaOS uses non-standard container names (`immich-server` instead of `immich_server`), requiring manual verification via `docker ps` before executing commands.
+* **Log Analysis**: Since standard Docker logs were redirected to an internal collector, I used `docker exec` to locate and audit the internal PostgreSQL logs (`/var/lib/postgresql/data/log/`).
+* **Health Check Mitigation**: Observed the database stuck in `health: starting`. Diagnosis confirmed this was a false positive caused by the heavy computational load of vector index migrations during the v1 to v2 transition.
+
+### 🛡 Security & Best Practices
+* **Supply Chain Security**: By migrating to official images (`ghcr.io/immich-app/*`), I improved the security of the lab by removing "middleman" risk.
+* **Direct Updates**: This ensures that security patches and features are received directly from the upstream developers rather than waiting for third-party template updates.
+
+---
+
+## 🚀 Current System Status (Updated)
+| Component | Technology | Status |
+| :--- | :--- | :--- |
+| **Server OS** | Ubuntu Server 24.04 LTS | ✅ Running |
+| **Backups** | BorgBackup (Automated) | ✅ Active |
+| **Photo Engine** | Immich (Official GHCR) | ✅ v2.5 Active |
+| **Database** | PostgreSQL 14 + pgvector | ✅ Healthy |
